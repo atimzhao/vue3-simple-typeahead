@@ -57,7 +57,7 @@ function _nonIterableRest() {
   throw new TypeError("Invalid attempt to destructure non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.");
 }var script = /*#__PURE__*/vue.defineComponent({
   name: 'Vue3SimpleTypeahead',
-  emits: ['onInput', 'onFocus', 'onBlur', 'selectItem'],
+  emits: ['onInput', 'onFocus', 'onBlur', 'selectItem', "hoverItem"],
   props: {
     id: {
       type: String
@@ -180,6 +180,7 @@ function _nonIterableRest() {
     mouseEnter: function mouseEnter(index) {
       this.currentSelectionIndex = index;
       console.log("mouse entereddd");
+      this.$emit('hoverItem', this.currentSelection);
     }
   },
   computed: {
@@ -201,7 +202,7 @@ function _nonIterableRest() {
       return this.isListVisible && this.currentSelectionIndex < this.filteredItems.length ? this.filteredItems[this.currentSelectionIndex] : undefined;
     }
   }
-});vue.pushScopeId("data-v-34f17a24");
+});vue.pushScopeId("data-v-2e8787a8");
 
 var _hoisted_1 = ["id"];
 var _hoisted_2 = ["id", "placeholder"];
@@ -213,7 +214,7 @@ var _hoisted_4 = {
   key: 0,
   class: "simple-typeahead-list-header"
 };
-var _hoisted_5 = ["onClick", "onMouseenter", "onMouseover"];
+var _hoisted_5 = ["onClick", "onMouseenter"];
 var _hoisted_6 = ["data-text"];
 var _hoisted_7 = ["data-text", "innerHTML"];
 var _hoisted_8 = {
@@ -264,9 +265,6 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       },
       onMouseenter: function onMouseenter($event) {
         return _ctx.mouseEnter(index);
-      },
-      onMouseover: function onMouseover($event) {
-        return _ctx.mouseOver(index);
       }
     }, [_ctx.$slots['list-item-text'] ? (vue.openBlock(), vue.createElementBlock("span", {
       key: 0,
@@ -284,7 +282,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, _hoisted_7))], 42, _hoisted_5);
   }), 128)), _ctx.$slots['list-footer'] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_8, [vue.renderSlot(_ctx.$slots, "list-footer")])) : vue.createCommentVNode("", true)])) : vue.createCommentVNode("", true)], 8, _hoisted_1);
 }script.render = render;
-script.__scopeId = "data-v-34f17a24";// Import vue component
+script.__scopeId = "data-v-2e8787a8";// Import vue component
 // IIFE injects install function into component, allowing component
 // to be registered via Vue.use() as well as Vue.component(),
 

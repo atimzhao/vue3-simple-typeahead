@@ -24,7 +24,6 @@
 				@mousedown.prevent
 				@click="selectItem(item)"
 				@mouseenter="mouseEnter(index)"
-				@mouseover="mouseOver(index)"
 			>
 				<span class="simple-typeahead-list-item-text" :data-text="itemProjection(item)" v-if="$slots['list-item-text']"
 					><slot name="list-item-text" :item="item" :itemProjection="itemProjection" :boldMatchText="boldMatchText"></slot
@@ -41,7 +40,7 @@
 
 	export default /*#__PURE__*/ defineComponent({
 		name: 'Vue3SimpleTypeahead',
-		emits: ['onInput', 'onFocus', 'onBlur', 'selectItem'],
+		emits: ['onInput', 'onFocus', 'onBlur', 'selectItem', "hoverItem"],
 		props: {
 			id: {
 				type: String,
@@ -149,6 +148,7 @@
 			mouseEnter(index) {
 				this.currentSelectionIndex = index
 				console.log("mouse entereddd")
+				this.$emit('hoverItem', this.currentSelection);
 			},
 		},
 		computed: {

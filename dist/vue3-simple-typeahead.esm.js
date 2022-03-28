@@ -2,7 +2,7 @@ import { defineComponent, pushScopeId, popScopeId, openBlock, createElementBlock
 
 var script = /*#__PURE__*/defineComponent({
   name: 'Vue3SimpleTypeahead',
-  emits: ['onInput', 'onFocus', 'onBlur', 'selectItem'],
+  emits: ['onInput', 'onFocus', 'onBlur', 'selectItem', "hoverItem"],
   props: {
     id: {
       type: String
@@ -138,6 +138,7 @@ var script = /*#__PURE__*/defineComponent({
     mouseEnter(index) {
       this.currentSelectionIndex = index;
       console.log("mouse entereddd");
+      this.$emit('hoverItem', this.currentSelection);
     }
 
   },
@@ -162,7 +163,7 @@ var script = /*#__PURE__*/defineComponent({
   }
 });
 
-pushScopeId("data-v-34f17a24");
+pushScopeId("data-v-2e8787a8");
 
 const _hoisted_1 = ["id"];
 const _hoisted_2 = ["id", "placeholder"];
@@ -174,7 +175,7 @@ const _hoisted_4 = {
   key: 0,
   class: "simple-typeahead-list-header"
 };
-const _hoisted_5 = ["onClick", "onMouseenter", "onMouseover"];
+const _hoisted_5 = ["onClick", "onMouseenter"];
 const _hoisted_6 = ["data-text"];
 const _hoisted_7 = ["data-text", "innerHTML"];
 const _hoisted_8 = {
@@ -207,8 +208,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: index,
       onMousedown: _cache[7] || (_cache[7] = withModifiers(() => {}, ["prevent"])),
       onClick: $event => _ctx.selectItem(item),
-      onMouseenter: $event => _ctx.mouseEnter(index),
-      onMouseover: $event => _ctx.mouseOver(index)
+      onMouseenter: $event => _ctx.mouseEnter(index)
     }, [_ctx.$slots['list-item-text'] ? (openBlock(), createElementBlock("span", {
       key: 0,
       class: "simple-typeahead-list-item-text",
@@ -227,7 +227,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script.render = render;
-script.__scopeId = "data-v-34f17a24";
+script.__scopeId = "data-v-2e8787a8";
 
 // Import vue component
 // IIFE injects install function into component, allowing component
