@@ -84,6 +84,7 @@ var script = /*#__PURE__*/defineComponent({
       }
 
       this.scrollSelectionIntoView();
+      this.$emit('hoverItem', this.currentSelection);
     },
 
     onArrowUp($event) {
@@ -92,6 +93,7 @@ var script = /*#__PURE__*/defineComponent({
       }
 
       this.scrollSelectionIntoView();
+      this.$emit('hoverItem', this.currentSelection);
     },
 
     scrollSelectionIntoView() {
@@ -163,7 +165,7 @@ var script = /*#__PURE__*/defineComponent({
   }
 });
 
-pushScopeId("data-v-2e8787a8");
+pushScopeId("data-v-daa1f3c4");
 
 const _hoisted_1 = ["id"];
 const _hoisted_2 = ["id", "placeholder"];
@@ -227,7 +229,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script.render = render;
-script.__scopeId = "data-v-2e8787a8";
+script.__scopeId = "data-v-daa1f3c4";
 
 // Import vue component
 // IIFE injects install function into component, allowing component

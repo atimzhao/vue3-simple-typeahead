@@ -103,12 +103,14 @@
 					this.currentSelectionIndex++;
 				}
 				this.scrollSelectionIntoView();
+				this.$emit('hoverItem', this.currentSelection);
 			},
 			onArrowUp($event) {
 				if (this.isListVisible && this.currentSelectionIndex > 0) {
 					this.currentSelectionIndex--;
 				}
 				this.scrollSelectionIntoView();
+				this.$emit('hoverItem', this.currentSelection);
 			},
 			scrollSelectionIntoView() {
 				setTimeout(() => {
