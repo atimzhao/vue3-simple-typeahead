@@ -133,6 +133,11 @@ var script = /*#__PURE__*/defineComponent({
     boldMatchText(text) {
       const regexp = new RegExp(`(${this.escapeRegExp(this.input)})`, 'ig');
       return text.replace(regexp, '<strong>$1</strong>');
+    },
+
+    mouseEnter(index) {
+      this.currentSelectionIndex = index;
+      console.log("mouse entereddd");
     }
 
   },
@@ -157,7 +162,7 @@ var script = /*#__PURE__*/defineComponent({
   }
 });
 
-pushScopeId("data-v-d71f86d8");
+pushScopeId("data-v-34f17a24");
 
 const _hoisted_1 = ["id"];
 const _hoisted_2 = ["id", "placeholder"];
@@ -169,7 +174,7 @@ const _hoisted_4 = {
   key: 0,
   class: "simple-typeahead-list-header"
 };
-const _hoisted_5 = ["onClick", "onMouseenter"];
+const _hoisted_5 = ["onClick", "onMouseenter", "onMouseover"];
 const _hoisted_6 = ["data-text"];
 const _hoisted_7 = ["data-text", "innerHTML"];
 const _hoisted_8 = {
@@ -202,7 +207,8 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
       key: index,
       onMousedown: _cache[7] || (_cache[7] = withModifiers(() => {}, ["prevent"])),
       onClick: $event => _ctx.selectItem(item),
-      onMouseenter: $event => _ctx.currentSelectionIndex = index
+      onMouseenter: $event => _ctx.mouseEnter(index),
+      onMouseover: $event => _ctx.mouseOver(index)
     }, [_ctx.$slots['list-item-text'] ? (openBlock(), createElementBlock("span", {
       key: 0,
       class: "simple-typeahead-list-item-text",
@@ -221,7 +227,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
 }
 
 script.render = render;
-script.__scopeId = "data-v-d71f86d8";
+script.__scopeId = "data-v-34f17a24";
 
 // Import vue component
 // IIFE injects install function into component, allowing component

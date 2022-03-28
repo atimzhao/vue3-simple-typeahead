@@ -176,6 +176,10 @@ function _nonIterableRest() {
     boldMatchText: function boldMatchText(text) {
       var regexp = new RegExp("(".concat(this.escapeRegExp(this.input), ")"), 'ig');
       return text.replace(regexp, '<strong>$1</strong>');
+    },
+    mouseEnter: function mouseEnter(index) {
+      this.currentSelectionIndex = index;
+      console.log("mouse entereddd");
     }
   },
   computed: {
@@ -197,7 +201,7 @@ function _nonIterableRest() {
       return this.isListVisible && this.currentSelectionIndex < this.filteredItems.length ? this.filteredItems[this.currentSelectionIndex] : undefined;
     }
   }
-});vue.pushScopeId("data-v-d71f86d8");
+});vue.pushScopeId("data-v-34f17a24");
 
 var _hoisted_1 = ["id"];
 var _hoisted_2 = ["id", "placeholder"];
@@ -209,7 +213,7 @@ var _hoisted_4 = {
   key: 0,
   class: "simple-typeahead-list-header"
 };
-var _hoisted_5 = ["onClick", "onMouseenter"];
+var _hoisted_5 = ["onClick", "onMouseenter", "onMouseover"];
 var _hoisted_6 = ["data-text"];
 var _hoisted_7 = ["data-text", "innerHTML"];
 var _hoisted_8 = {
@@ -259,7 +263,10 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
         return _ctx.selectItem(item);
       },
       onMouseenter: function onMouseenter($event) {
-        return _ctx.currentSelectionIndex = index;
+        return _ctx.mouseEnter(index);
+      },
+      onMouseover: function onMouseover($event) {
+        return _ctx.mouseOver(index);
       }
     }, [_ctx.$slots['list-item-text'] ? (vue.openBlock(), vue.createElementBlock("span", {
       key: 0,
@@ -277,7 +284,7 @@ function render(_ctx, _cache, $props, $setup, $data, $options) {
     }, null, 8, _hoisted_7))], 42, _hoisted_5);
   }), 128)), _ctx.$slots['list-footer'] ? (vue.openBlock(), vue.createElementBlock("div", _hoisted_8, [vue.renderSlot(_ctx.$slots, "list-footer")])) : vue.createCommentVNode("", true)])) : vue.createCommentVNode("", true)], 8, _hoisted_1);
 }script.render = render;
-script.__scopeId = "data-v-d71f86d8";// Import vue component
+script.__scopeId = "data-v-34f17a24";// Import vue component
 // IIFE injects install function into component, allowing component
 // to be registered via Vue.use() as well as Vue.component(),
 
